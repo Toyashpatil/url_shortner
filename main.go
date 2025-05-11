@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
@@ -37,7 +38,13 @@ func main() {
 	routes.UrlRoutes(v1)
 	fmt.Println("server started")
 	r.Use(mux.CORSMethodMiddleware(r))
-	err := http.ListenAndServe("127.0.0.1:3000", r)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	addr := ":" + port
+	err := http.ListenAndServe(addr, r)
 	if err != nil {
 		fmt.Println("error in starting the server")
 	}
