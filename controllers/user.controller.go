@@ -78,6 +78,7 @@ func (g *UserController) LoginUser(w http.ResponseWriter, r *http.Request) {
 func (g *UserController) CreateUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	var in struct {
+		Name     string `json:"name"`
 		Email    string `json:"email"`
 		Password string `json:"password"`
 	}
@@ -99,11 +100,11 @@ func (g *UserController) CreateUser(w http.ResponseWriter, r *http.Request) {
 	now := time.Now().UTC()
 	var newID int
 	query := `
-		INSERT INTO users (email, password_hash, created_at)
-		VALUES ($1, $2, $3)
+		INSERT INTO users (name,email, password_hash, created_at)
+		VALUES ($1, $2, $3,$4)
 		RETURNING id`
 	if err := g.DB.
-		QueryRowContext(r.Context(), query, in.Email, string(hash), now).
+		QueryRowContext(r.Context(), query, in.Name, in.Email, string(hash), now).
 		Scan(&newID); err != nil {
 
 		if pgErr, ok := err.(*pq.Error); ok && pgErr.Code == "23505" {
