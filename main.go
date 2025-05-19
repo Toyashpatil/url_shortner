@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/gorilla/handlers"
+
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
 	"github.com/urlshortner/config"
@@ -37,31 +38,15 @@ func main() {
 	routes.UserRoutes(r)
 	routes.UrlRoutes(r)
 	fmt.Println("server started")
-	corsOpts := handlers.CORS(
-		handlers.AllowedOrigins([]string{
-			"*", // add any other allowed origins here
-		}),
-		handlers.AllowedMethods([]string{
-			http.MethodGet,
-			http.MethodPost,
-			http.MethodPut,
-			http.MethodDelete,
-			http.MethodOptions,
-		}),
-		handlers.AllowedHeaders([]string{
-			"Content-Type",
-			"Authorization",
-		}),
-		// If you need to expose custom headers in responses:
-		// handlers.ExposedHeaders([]string{"X-My-Custom-Header"}),
-	)
 
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
 	addr := ":" + port
-	err := http.ListenAndServe(addr, corsOpts(r))
+	err := http.ListenAndServe(addr, handlers.CORS(handlers.AllowedOrigins([]string{"*"}),
+		handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}),
+		handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}))(r))
 	if err != nil {
 		fmt.Println("error in starting the server")
 	}
