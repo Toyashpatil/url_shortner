@@ -33,9 +33,8 @@ func main() {
 
 	r.HandleFunc("/", checkHealth)
 
-	api := r.PathPrefix("/api").Subrouter()
-	v1 := api.PathPrefix("/v1").Subrouter()
-	routes.UrlRoutes(v1)
+	routes.UserRoutes(r)
+	routes.UrlRoutes(r)
 	fmt.Println("server started")
 	r.Use(mux.CORSMethodMiddleware(r))
 
@@ -43,7 +42,7 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
-	addr := ":" + port
+	addr := "127.0.0.1:" + port
 	err := http.ListenAndServe(addr, r)
 	if err != nil {
 		fmt.Println("error in starting the server")
