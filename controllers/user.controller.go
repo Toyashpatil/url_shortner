@@ -133,7 +133,6 @@ func (g *UserController) CreateUser(w http.ResponseWriter, r *http.Request) {
 func (uc *UserController) GetUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	// 1. Pull the id from context (set by Auth middleware)
 	uidVal := r.Context().Value(models.ContextKeyUserID)
 	if uidVal == nil {
 		http.Error(w, "no user in context", http.StatusUnauthorized)
@@ -145,7 +144,6 @@ func (uc *UserController) GetUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// 2. Query DB
 	var user models.User
 	err := uc.DB.QueryRowContext(
 		r.Context(),
@@ -163,7 +161,6 @@ func (uc *UserController) GetUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// 3. Respond
 	json.NewEncoder(w).Encode(struct {
 		Success bool        `json:"success"`
 		User    models.User `json:"user"`
