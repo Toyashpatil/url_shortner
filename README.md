@@ -6,8 +6,7 @@ It allows users to register, shorten long URLs, and manage their links securely.
 ---
 
 ## 🌐 Live Website
-👉 [Visit the Website](https://url-shortner-fe-pi.vercel.app/)  
-👉 [Frontend Repository](https://github.com/Toyashpatil/url_shortner_FE)  
+👉 [Visit the Website](https://url-shortner-fe-pi.vercel.app/)   
 
 ---
 
@@ -40,4 +39,6 @@ It allows users to register, shorten long URLs, and manage their links securely.
   - Email: test@gmail.com
   - Password: test123
 
+## Frontend Repo
+👉 [Frontend Repository](https://github.com/Toyashpatil/url_shortner_FE)  
 
