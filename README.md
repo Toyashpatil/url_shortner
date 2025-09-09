@@ -33,9 +33,11 @@ It allows users to register, shorten long URLs, and manage their links securely.
      <img width="1726" height="752" alt="{3531FFE4-C05C-4A69-90AE-9530F1D91CB4}" src="https://github.com/user-attachments/assets/4b88f330-9c6b-450f-ac68-d004c3b05903" />
 
 - **Home**
-  <img width="1918" height="835" alt="{D64E7701-7FDB-4660-9E6C-BCE1012E1C3E}" src="https://github.com/user-attachments/assets/401150c8-9307-4b6e-9435-2f819f8ab1f9" />
+  <img width="1915" height="863" alt="{D44B5A25-0A61-46C7-9962-DA95E1C387A8}" src="https://github.com/user-attachments/assets/07778e51-ca86-4649-a739-a476575eff77" />
+
 
 ## Test Credentials
-  Email: test@gmail.com
-  Password: test123
+  - Email: test@gmail.com
+  - Password: test123
+
 
