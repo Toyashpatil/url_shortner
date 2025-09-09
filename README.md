@@ -6,8 +6,8 @@ It allows users to register, shorten long URLs, and manage their links securely.
 ---
 
 ## 🌐 Live Website
-👉 [Visit the Website](https://your-website-link.com)  
-👉 [Frontend Repository](https://github.com/your-username/url_shortner_fe)  
+👉 [Visit the Website](https://url-shortner-fe-pi.vercel.app/)  
+👉 [Frontend Repository](https://github.com/Toyashpatil/url_shortner_FE)  
 
 ---
 
@@ -22,9 +22,8 @@ It allows users to register, shorten long URLs, and manage their links securely.
 
 ## 🛠 Tech Stack
 - **Backend**: Go (Golang), PostgreSQL  
-- **Authentication**: JWT  
-- **ORM/DB**: `database/sql` with `lib/pq`  
-- **Hosting**: Render / Docker  
+- **Authentication**: JWT    
+- **Hosting**: Render / Vercel 
 
 ---
 
@@ -39,3 +38,4 @@ It allows users to register, shorten long URLs, and manage their links securely.
 ## Test Credentials
   Email: test@gmail.com
   Password: test123
+
